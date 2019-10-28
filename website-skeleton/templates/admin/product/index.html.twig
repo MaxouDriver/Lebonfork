@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Admin' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h2>Gerer les biens</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.title }}</td>
+                        <td>
+                            <a href="{{ path('admin.product.edit', {id: product.id}) }}" class="btn btn-secondary">Editer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
