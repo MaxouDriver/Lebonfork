@@ -29,7 +29,8 @@ class ProductController extends AbstractController
         $products = $this->repository->findAll();
         dump($products);
         return $this->render('product/index.html.twig', [
-            'current_menu' => 'products'
+            'current_menu' => 'products',
+            'products' => $products
         ]);
     }
 
@@ -49,6 +50,21 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', [
             'product' => $product,
             'current_menu' => 'products'
+        ]);
+    }
+
+
+    /**
+     * @Route("/products/ordered", name="product.ordered")
+     * @return Response
+     *
+     */
+    public function showByOrder(): Response
+    {
+        $products = $this->repository->findOrdered();
+        return $this->render('product/order.html.twig', [
+            'products' => $products,
+            'current_menu' => 'order'
         ]);
     }
 }

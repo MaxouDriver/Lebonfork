@@ -26,4 +26,12 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findOrdered()
+    {
+        return $this->createQueryBuilder('o')
+            ->orderBy('o.price', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -1,0 +1,5 @@
+lougout:
+  path: /logout
+
+admin:
+  path: /admin

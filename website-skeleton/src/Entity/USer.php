@@ -105,7 +105,7 @@ class USer implements UserInterface, \Serializable
      */
     public function serialize()
     {
-        return $this->serialize([
+        return serialize([
             $this->id,
             $this->username,
             $this->password

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Tous les biens par ordre croissant' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>Tous les biens par ordre croissant</h1>
+
+        {% for product in products %}
+            <div class="col-3" style="display: inline-block; margin: 20px;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('product.show', {id: product.id, slug: product.slug}) }}">{{ product.title }}</a>
+                        </h5>
+                        <p class="card-text">
+                            {{ product.description }}
+                        </p>
+                        <div class="text-danger" style="font-weight: bold;font-size: 3rem;">{{ product.price }} €</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
